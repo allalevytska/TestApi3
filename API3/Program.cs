@@ -1,4 +1,5 @@
 ﻿using System;
+using RestSharp;
 
 namespace API3
 {
@@ -6,7 +7,14 @@ namespace API3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine();
+        }
+
+        public void GetDataByPostCode()
+        {
+            RestClient client = new RestClient("api.zippopotam.us/us/90210");
+            RestRequest request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
         }
     }
 }
